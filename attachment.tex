@@ -1,0 +1,21 @@
+\pagenumbering{arabic}% resets `page` counter to 1
+\renewcommand*{\thepage}{A\arabic{page}}
+
+\begin{landscape}
+	\appendix
+
+	% A4 Quer
+	\includepdf[landscape=true,scale=1,offset=+5.5cm 0cm, pagecommand=\chapter{Anlage}\section{A4 Querformat}]{attachments/A4Querformat.pdf}
+
+	% A3 Hoch
+	\includepdf[fitpaper,landscape=true,scale=1,offset=+1cm 0cm, pagecommand=\section{A3 Hochformat}]{attachments/A3Hochformat.pdf}
+
+\end{landscape}
+
+	% A4 Hoch
+	\includepdf[fitpaper,scale=1,pages=1,offset=0cm -1cm, pagecommand=\section{A4 Hochformat mehrere Seiten}]{attachments/A4Hochformat.pdf}
+	\includepdf[fitpaper,scale=1,pages=2-,offset=0cm 0cm, pagecommand={}]{attachments/A4Hochformat.pdf}
+
+	% A3 Quer
+	\includepdf[fitpaper,landscape=false,pages=1,scale=1,offset=0 -1cm, pagecommand=\section{A3 Querformat}]{attachments/A3Querformat.pdf}
+

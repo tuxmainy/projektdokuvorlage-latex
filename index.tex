@@ -1,0 +1,75 @@
+\documentclass[12pt,a4paper, pointlessnumbers, abstraction, headsepline]{scrreprt}
+
+%\usepackage{uarial}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\setsansfont{Arial}
+\usepackage[onehalfspacing]{setspace}
+\renewcommand\familydefault{\sfdefault}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage[left=2cm, right=2cm, bottom=2cm, top=2cm, footskip=1cm]{geometry}
+\usepackage{cite}
+\usepackage{pdfpages}
+\usepackage{pdflscape}
+\usepackage[autostyle=true,german=quotes]{csquotes}
+%\usepackage{hyperref}
+\usepackage{tocloft}
+
+\DeclareMathSizes{12}{12}{12}{12}
+
+\newcommand{\achtung}[1]{\colorbox{red}{#1}}
+
+% --------------------------------------------------------------- 
+\makeatletter
+\title{Projektarbeit}
+\author{\achtung{Vorname Nachname}}
+\date{\today}
+
+\addtokomafont{pagenumber}{\sffamily}
+\renewcommand{\cftsecfont}{\sffamily}
+\renewcommand{\cftsecpagefont}{\sffamily}
+\renewcommand{\cftsubsecfont}{\sffamily}
+\renewcommand{\cftsubsecpagefont}{\sffamily}
+
+\setkomafont{caption}{\sffamily}
+\setkomafont{captionlabel}{\usekomafont{caption}}
+\renewcommand{\cftfigfont}{\sffamily}
+\renewcommand{\cftfigpagefont}{\sffamily}
+
+\begin{document}
+	\input{title.tex}
+	\input{self.tex}
+	\input{acronyms.tex} % Abkürzungsverzeichnis
+
+	\pagestyle{empty}
+	\addtocontents{toc}{\protect\thispagestyle{empty}}
+	\cleardoublepage
+	\tableofcontents %Inhaltsverzeichnis erstellen
+
+	\cleardoublepage
+ 
+% --------------------------------------------------------------
+
+	\pagestyle{plain}
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	\input{intro.tex}
+	\input{subfolder/01_foo.tex}
+	\input{subfolder/02_bar.tex}
+	
+% --------------------------------------------------------------
+% Abbildungsverzeichnis
+	\clearpage
+	\listoffigures
+%	\addcontentsline{toc}{chapter}{\listfigurename} % Abbildungsverzeichnis ins Inhaltsverzeichnis aufnehmen
+
+%	\listoftables % Tabellenverzeichnis
+	\clearpage
+%	\addcontentsline{toc}{chapter}{\listtablename}
+	%Tabellenverzeichnis ins Inhaltsverzeichnis aufnehmen
+	\input{attachment.tex}
+\end{document}
